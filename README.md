@@ -1,6 +1,8 @@
 # JSON & Processing 
 
-# An overview
+**Installation instructions at bottom**
+
+---------------
 
 ## Processing Sketch
 Located in the ***processing_json*** folder.
@@ -9,6 +11,8 @@ Requires the [JSON-Processing library](https://github.com/agoransson/JSON-proces
 [Download the library](https://github.com/agoransson/JSON-processing/downloads) and put it in your Processing Library  ~/Documents/Processing/libraries. Create the 'libraries' directory if it does not already exist. Restart Processing.
 
 Open the procession_json.pde inside Processing application.
+
+---------------
 
 ## ExpressJS Web App Routes
 
@@ -35,10 +39,11 @@ Or
 
 Uses Hogan template rendering engine
 
+---------------
 
+# Running the code
 
-
-## Download the .zip file
+Once you have the code downloaded to your computer
 
 ## Configure MONGOLAB variable
 Add your MONGOLAB_URI connection string to your .env file
