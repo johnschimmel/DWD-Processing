@@ -3,7 +3,8 @@ import org.json.*;
 ArrayList circles;
 Timer timer;
 
-String BASE_URL = "http://dwd-processing.herokuapp.com/";
+String BASE_URL = "http://127.0.0.1:5000";
+//String BASE_URL = "http://dwd-processing.herokuapp.com/";
 
 void setup() {
   circles = new ArrayList();
