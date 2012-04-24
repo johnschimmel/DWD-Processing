@@ -1,9 +1,55 @@
+# JSON & Processing 
 
-# Set up file structure and Heroku App
+# An overview
 
-In your terminal, clone this repo
+## Processing Sketch
+Located in the ***processing_json*** folder.
+Requires the [JSON-Processing library](https://github.com/agoransson/JSON-processing/downloads)
 
-	git clone git@github.com:johnschimmel/DWD-Processing.git
+[Download the library](https://github.com/agoransson/JSON-processing/downloads) and put it in your Processing Library  ~/Documents/Processing/libraries. Create the 'libraries' directory if it does not already exist. Restart Processing.
+
+Open the procession_json.pde inside Processing application.
+
+## ExpressJS Web App Routes
+
+*   / - displays web page that redisplays JSON data in form every 5 seconds
+*   /reset - will reset the JSON data
+*   /json - the main JSON data url
+
+### Updating a circle
+Provide the circle's embeded doc ID along with color, x, y and size
+
+    /circles/set?id=EMBEDED_DOC_ID&color=FF00FF&x=10&y=10&size=15
+
+### Create a new circle
+Just provide the x and y positions. Defaults will be provided for size and color
+
+    /circles/set?x=25&y=100
+
+Or
+
+    /circles/set?x=25&y=100&color=00FF00&size=25
+    
+
+## Web page form
+
+Uses Hogan template rendering engine
+
+
+
+
+## Download the .zip file
+
+## Configure MONGOLAB variable
+Add your MONGOLAB_URI connection string to your .env file
+
+-Or
+
+Copy an existing .env file into this directory.
+
+## Install Node Modules
+
+    npm install
 
 
 If you haven't already, create a new app on Heroku (cedar), this will add an additional remote GIT path to Heroku. (Assumes you have [Heroku Toolbelt](https://toolbelt.heroku.com/) installed)
