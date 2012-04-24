@@ -120,6 +120,7 @@ module.exports = {
         
         
         var updateData = {
+            name : 'main',
             circles : theCircles,
             texts : ['apple','turtle','zebra'],
             updated: Date.now()
