@@ -28,12 +28,12 @@ module.exports = {
     
     setCircles : function(request, response) {
         
-        
-        color = request.query['color'] || "00FF00";
         xpos = request.query.x;
         ypos = request.query.y;
+        
+        color = request.query['color'] || "00FF00";
         size = request.query.size || 25;
-        id = request.query.id || null;
+        id = request.query.id || null; //this will be the embedded doc _id property
         
         console.log("*********")
         console.log(id);
@@ -82,9 +82,6 @@ module.exports = {
                 response.json(status);
             }
         });
-        var conditions = {name : 'main'};
-        //var update = { $push : {circles : }}
-        //db.Processing.update()
         
     },
     

@@ -13,7 +13,7 @@ void setup() {
   String resetURL = "/reset";
   JSONObject resetResult = fetchJSON(resetURL);
 
-getMainData();
+  getMainData();
 
   timer = new Timer(5000);
   timer.start();
@@ -27,8 +27,10 @@ void draw() {
   //display circles
   if (circles.isEmpty() == false) {
     for (int i=0; i<circles.size(); i++) {
+      
       Circle tmpCircle = (Circle) circles.get(i);
       tmpCircle.display();
+      
     }
   }
 
@@ -66,7 +68,8 @@ void getMainData() {
 
   // Get the "circles" JSONObject
   JSONArray circles = jsonData.getJSONArray("circles");
-  getCircles(circles);
+  getCircles(circles); //loop through array of circles and create Circle objects
+  
   // Get the "texts" JSONObject
   JSONArray texts = jsonData.getJSONArray("texts");
 
@@ -93,15 +96,17 @@ void getCircles(JSONArray jsonCircles) {
 
     //create and add circle to 'circles' ArrayList
     Circle testCircle = new Circle(_color, _xpos, _ypos, _size, _id);
-    circles.add(testCircle);
+    circles.add(testCircle); // put into ArrayList of Circles
   }
 }
 
 void mousePressed() {
   
+  // prepare url to create a new circle with x and y position
   String createCircleURL = "/circles/set?x=" + mouseX + "&y="+ mouseY;
   JSONObject updatedJSON = fetchJSON(createCircleURL);
   
+  // redraw the circles with the returned/updated JSON
   JSONArray circles = updatedJSON.getJSONArray("circles");
   getCircles(circles);
 }

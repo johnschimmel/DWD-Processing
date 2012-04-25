@@ -2,21 +2,30 @@ var processingData;
 
 jQuery(document).ready(function(){
 
-    fetchJSON();
-    setInterval(fetchJSON, 5000);
+    fetchJSON(); // initial circle / json request
+
+    setInterval(fetchJSON, 5000); //start a timer
     
-    jQuery('input.updateBtn').live('click', saveCircleInfo );
+    // Live / Real time event binder will catch NEW HTML elements for binding fun.
+    jQuery('input.updateBtn').live('click', saveCircleInfo ); 
     
 });
 
 var saveCircleInfo = function() {
-    var form = jQuery(this).parent();
+
+    // "This" is the button that was clicked
+    var form = jQuery(this).parent(); 
     
+    console.log(form);
+    console.log(jQuery(form).serialize());
+    
+    // make ajax request to update JSON data
     jQuery.ajax({
           type : 'GET'
         , url : '/circles/set'
         , dataType : 'JSON'
         , data : jQuery(form).serialize()
+        
         , success : function(data) {
             console.log("update success");
             updateForm(data);
@@ -59,6 +68,7 @@ var updateForm = function(data) {
         updatedCircleForm += circleFormTemplate.render(circles[i]); // using Hogan javascript templates
     }
     
+    // update html on browser.
     jQuery("#processingData").html(updatedCircleForm);
     
 }
